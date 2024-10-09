@@ -7,6 +7,10 @@ import banner from "@/assets/Images/banner.mp4";
 import { CodeBlocks } from "@/components/core/home/server/CodeBlocks";
 import { TimelineSection } from "@/components/core/home/server/TimelineSection";
 import { LearningLanguageSection } from "@/components/core/home/server/LearningLanguageSection";
+import Image from "next/image";
+import instructor from "@/assets/Images/instructor.png";
+import { ReviewCard } from "@/components/core/home/server/ReviewCard";
+import { ratingAndReview } from "@/data/ratingAndReview";
 
 export default function Home() {
   return (
@@ -159,6 +163,57 @@ export default function Home() {
       </div>
 
       {/* section 3 */}
+      <div className="relative mx-auto flex flex-col w-11/12 max-w-maxContent items-center 
+      text-white ">
+        <div className="flex flex-row items-center justify-center gap-28 mt-10 ">
+          
+            <Image src={instructor} alt="instructor" width={600} height={200} className="shadow-white-shadow-inverse" />
+          
+
+          <div className="flex flex-col gap-4 justify-center">
+            <div>
+              <h1 className="text-4xl font-semibold">Become an </h1>
+              <p className="text-4xl font-semibold">
+                <HiglightText text={"instructor"} />
+              </p>
+            </div>
+            <p className="text-richblack-300">
+              Instructors from around the world teach millions of students on StudyNotion. We provide the tools and skills to teach what you love.
+            </p>
+
+            <div className="flex mt-20">
+              <Button linkto="/signup" active={true}>
+                <div className="flex items-center gap-2">
+                  <p>Start Teaching Today</p>
+                  <FaArrowRight />
+                </div>
+              </Button>
+            </div>
+          </div>
+
+            
+        </div>
+
+        <div className="flex flex-col justify-center items-center mt-44 w-full">
+          <h1 className="text-4xl font-semibold">Reviews from other learners</h1>
+
+          <div className="flex w-full gap-4 mt-10 relative">
+
+            <div className="h-full absolute bg-lightblack-800 w-32 blur-sm rounded-xl left-0"></div>
+            {
+              ratingAndReview.map((element, index) => (
+                <ReviewCard key={index} pic={element.pic} 
+                name={element.name} 
+                email={element.email} 
+                review={element.review} 
+                rating={element.rating} />
+              ))
+            }
+            <div className="h-full absolute bg-lightblack-800 w-32 blur-md rounded-xl right-0"></div>
+           
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

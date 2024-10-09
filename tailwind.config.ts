@@ -30,6 +30,9 @@ const config: Config = {
         800: "#161D29",
         900: "#000814",
       },
+      lightblack:{
+        800: "rgba(22, 29, 41, 0.4)",
+      },
       richblue: {
         5: "#ECF5FF",
         25: "#C6D6E1",
@@ -136,6 +139,7 @@ const config: Config = {
       },
       boxShadow:{
         "white-shadow": "15px 15px #FFFFFF",
+        "white-shadow-inverse": "-15px -15px #FFFFFF",
       },
       backgroundImage:{
         "linear-code": "linear-gradient(-54deg, rgba(14, 26, 45, 0.24) 0%, rgba(17, 30, 50, 0.38) 100%)",

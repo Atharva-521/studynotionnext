@@ -11,6 +11,8 @@ import Image from "next/image";
 import instructor from "@/assets/Images/instructor.png";
 import { ReviewCard } from "@/components/core/home/server/ReviewCard";
 import { ratingAndReview } from "@/data/ratingAndReview";
+import { aboutData, courseData } from "@/data/footerData";
+import studyNotionLogo from "@/assets/Logo/Logo-Full-Light.png"
 
 export default function Home() {
   return (
@@ -60,7 +62,7 @@ export default function Home() {
 
         {/* code section 1 */}
         <div>
-        <CodeBlocks
+          <CodeBlocks
             position={'lg:flex-row'}
             heading={
               <div className={"text-4xl font-semibold"}>
@@ -115,60 +117,60 @@ export default function Home() {
 
       {/* section 2 */}
       <div className="bg-pure-greys-5 text-richblack-700">
-            <div className="homepage_bg h-[310px]">
-              <div className="w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-5 mx-auto">
-              <div className="h-[150px]"></div>
+        <div className="homepage_bg h-[310px]">
+          <div className="w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-5 mx-auto">
+            <div className="h-[150px]"></div>
 
-              {/* buttons */}
-              <div className="flex flex-row gap-7 text-white">
-                    <Button active={true} linkto={'/signup'}>
-                      <div className="flex items-center gap-3">
-                        Explore Full Catalog
-                        <FaArrowRight />
-                      </div>
-                    </Button>
-
-                    <Button active={false} linkto={'/signup'}>
-                      Learn More
-                    </Button>
-              </div>
-
-              </div>
-
-            </div>
-
-            <div className="mx-auto w-11/12 max-w-maxContent flex flex-col justify-between gap-7">
-            <div className="flex flex-row justify-between mb-10 mt-[95px]">
-              <div className="text-4xl font-semibold w-[45%]">
-                Get the Skills you need for a
-                <HiglightText text={"Job that is in demand"} />
-              </div>
-
-              <div className="flex flex-col gap-10 w-[40%] items-start">
-                <div className="text-[16px]">
-                  The modern StudyNotion is the dictates its own terms. Today, to be a competitive specialist requires more than professional skills.
+            {/* buttons */}
+            <div className="flex flex-row gap-7 text-white">
+              <Button active={true} linkto={'/signup'}>
+                <div className="flex items-center gap-3">
+                  Explore Full Catalog
+                  <FaArrowRight />
                 </div>
+              </Button>
 
-                <Button active={true} linkto="/signup">
-                  <div>
-                    Learn More
-                  </div>
-                </Button>
+              <Button active={false} linkto={'/signup'}>
+                Learn More
+              </Button>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div className="mx-auto w-11/12 max-w-maxContent flex flex-col justify-between gap-7">
+          <div className="flex flex-row justify-between mb-10 mt-[95px]">
+            <div className="text-4xl font-semibold w-[45%]">
+              Get the Skills you need for a
+              <HiglightText text={"Job that is in demand"} />
+            </div>
+
+            <div className="flex flex-col gap-10 w-[40%] items-start">
+              <div className="text-[16px]">
+                The modern StudyNotion is the dictates its own terms. Today, to be a competitive specialist requires more than professional skills.
               </div>
+
+              <Button active={true} linkto="/signup">
+                <div>
+                  Learn More
+                </div>
+              </Button>
             </div>
-            
-            <TimelineSection />
-            <LearningLanguageSection />
-            </div>
+          </div>
+
+          <TimelineSection />
+          <LearningLanguageSection />
+        </div>
       </div>
 
       {/* section 3 */}
       <div className="relative mx-auto flex flex-col w-11/12 max-w-maxContent items-center 
-      text-white ">
+      text-white pb-16">
         <div className="flex flex-row items-center justify-center gap-28 mt-10 ">
-          
-            <Image src={instructor} alt="instructor" width={600} height={200} className="shadow-white-shadow-inverse" />
-          
+
+          <Image src={instructor} alt="instructor" width={600} height={200} className="shadow-white-shadow-inverse" />
+
 
           <div className="flex flex-col gap-4 justify-center">
             <div>
@@ -191,7 +193,7 @@ export default function Home() {
             </div>
           </div>
 
-            
+
         </div>
 
         <div className="flex flex-col justify-center items-center mt-44 w-full">
@@ -202,15 +204,124 @@ export default function Home() {
             <div className="h-full absolute bg-lightblack-800 w-32 blur-sm rounded-xl left-0"></div>
             {
               ratingAndReview.map((element, index) => (
-                <ReviewCard key={index} pic={element.pic} 
-                name={element.name} 
-                email={element.email} 
-                review={element.review} 
-                rating={element.rating} />
+                <ReviewCard key={index} pic={element.pic}
+                  name={element.name}
+                  email={element.email}
+                  review={element.review}
+                  rating={element.rating} />
               ))
             }
             <div className="h-full absolute bg-lightblack-800 w-32 blur-md rounded-xl right-0"></div>
-           
+
+          </div>
+        </div>
+      </div>
+
+      {/* footer */}
+      <div className="bg-richblack-800 flex py-10 ">
+        <div className="relative mx-auto flex lg:flex-row flex-col lg:gap-3 gap-7 w-11/12 max-w-maxContent ">
+          <div className="flex flex-col gap-2 w-[15%]">
+            <div className=" w-44">
+              <Image src={studyNotionLogo} alt={"studyNotionLogo"} />
+            </div>
+            <p className="text-richblack-50 font-bold">
+              {aboutData[0].heading}
+            </p>
+
+            <p className="text-richblack-500">
+              <Link href={aboutData[0].content[0].link}>{aboutData[0].content[0].head}</Link>
+            </p>
+            <p className="text-richblack-500">
+              <Link href={aboutData[0].content[1].link}>{aboutData[0].content[1].head}</Link>
+            </p>
+            <p className="text-richblack-500">
+              <Link href={aboutData[0].content[2].link}>{aboutData[0].content[2].head}</Link>
+            </p>
+
+            <div className="flex">
+
+            </div>
+          </div>
+          {/* aboutData */}
+          <div className="flex flex-wrap flex-col w-[35%] h-[25rem] ">
+            {
+              aboutData.slice(1).map((element, index) => (
+                <div className="flex flex-col gap-2 {index !== 0 ? mt-2 : mt-0}" key={index}>
+                  <p className="text-richblack-50 font-bold">
+                    {element.heading}
+                  </p>
+
+                  {
+                    element.content.map((item, index) => (
+                      <p className="text-richblack-500" key={index}>
+                        <Link href={item.link}>{item.head}</Link>
+                      </p>
+                    ))
+                  }
+                </div>
+              ))
+            }
+          </div>
+
+          {/* line */}
+          <div className="w-[0.1rem] bg-richblack-700">
+
+          </div>
+
+          {/* courseData */}
+          <div className="grid grid-rows-1 grid-cols-3 gap-6 lg:ml-10">
+            {
+              courseData.map((element, index) => (
+                <div key={index} className="flex flex-col lg:gap-2">
+                  <p className="text-richblack-50 font-bold">{element.heading}</p>
+
+                  {
+                    element.content.map((item, index) => (
+                      <p className="text-richblack-500" key={index}>
+                        <Link href={item.link}>{item.head}</Link>
+                      </p>
+                    ))
+                  }
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+
+      </div>
+
+      <div className="bg-richblack-800 flex pb-12 ">
+        <div className="relative mx-auto flex flex-col lg:gap-3 gap-7 w-11/12 max-w-maxContent ">
+          <div className="w-full h-[0.1rem] bg-richblack-700">
+            <div className="w-full flex mt-5 justify-between">
+              <div className="flex gap-3 ">
+
+                <p className="text-richblack-400 font-semibold">
+                  <Link href={'/privacypolicy'}> Privacy Policy</Link>
+                </p>
+
+                <div className="w-[0.1rem] bg-richblack-700">
+
+                </div>
+
+                <p className="text-richblack-400 font-semibold">
+                  <Link href={'/cookiepolicy'}> Cookie Policy</Link>
+                </p>
+
+                <div className="w-[0.1rem] bg-richblack-700">
+
+                </div>
+
+                <p className="text-richblack-400 font-semibold">
+                  <Link href={'/terms'}> Terms</Link>
+                </p>
+              </div>
+              <div className="text-richblack-400 font-semibold">
+                Made with ♥ Atharva © 2023 Studynotion
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
